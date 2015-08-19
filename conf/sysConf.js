@@ -4,7 +4,7 @@
 module.exports = {
     login: {
         code: 'test',
-        password: 'aaaaaa',
+        password: 'aaaaaa'
     },
     sessionKey:['key1','key2']
 }
