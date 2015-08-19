@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leaves的个人博客</title>
+    <link rel="stylesheet" href="../public/javascripts/bootstrap-material-design-master/dist/css/material.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/javascripts/highlight/styles/idea.css">
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="header">
+    <div class="col-md-10 col-md-offset-1">
+        <div style="height: 100%;float: left">
+            <span class="leaves">leaves</span>
+        </div>
+        <div class="sign">
+            <span style="color: blue">while</span> ( alive ){ i.<span
+                    style="font-style: italic;color: #999999">Ahead </span>(); }
+            &nbsp;&nbsp;&nbsp;&nbsp;生命不息，爬坑不止！
+        </div>
+    </div>
+</div>
+<div class="navbar-blue">
+    <div class="col-md-10 col-md-offset-1" style="border-width: 0px;">
+        <ul id="bar">
+            <li><a href="#list/All/1-10" class="navbar-select">全部</a></li>
+            <% blogType.forEach(function(type){ %>
+            <li><a href="#list/<%= type.id %>/1-10"><%= type.typeName %></a></li>
+            <% }) %>
+        </ul>
+
+
+    </div>
+
+</div>
+
+<div class="news"></div>
+<div class="container-fluid">
+    <div class="row body">
+        <div id="list" class="col-md-7 col-md-offset-1 article">
+            <% include ./list.ejs %>
+        </div>
+        <div class="col-md-3">
+            <% include ./sidebar.ejs %>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../public/javascripts/bootstrap-material-design-master/dist/js/material.min.js"></script>
+<script src="../public/javascripts/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
+<script src="../public/javascripts/index.js"></script>
+</body>
+</html>

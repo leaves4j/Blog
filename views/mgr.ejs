@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../public/javascripts/bootstrap-3.3.4-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div>
+    <form id="cotents">
+        标题：<input name="title">
+        </br>
+        类别：
+        <select name="blogtype">
+            <% blogType.forEach(function(type){ %>
+            <option value="<%= type.id %>"><%= type.typeName %></option>
+            <% }) %>
+        </select>
+        </br>
+        标签：<input name="keywords"></br>
+        摘要：</br>
+        <textarea name="summary" style="width: 100%;height: 100%"></textarea></br>
+        内容：</br>
+        <textarea name="text" style="width: 100%;height: 100%"></textarea>
+        <input type="button" value="提交" id="submit">
+    </form>
+
+</div>
+
+
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../public/javascripts/mgr.js"></script>
+</body>
+</html>

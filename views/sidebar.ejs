@@ -1,0 +1,19 @@
+<div class="sidebar">
+    <div class="sidebar-i">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;博主，男，90年生人，有着积极向上的生活观念和极其懒散的生活方式，
+        闲暇喜欢研究技术。
+
+    </div>
+</div>
+<div class="sidebar">
+    <div class="sidebar-header">热门文章</div>
+    <ul>
+        <% var i = 1; %>
+        <% tops.forEach(function(top){ %>
+        <li><span><%= i %>.</span>
+            <a href="#blog/<%= top.id %>"><%= top.title %></a>
+            <span style="float: right;color: #999"><%= top.views %>/<%= top.replies %></span>
+        </li>
+        <% i++;}) %>
+    </ul>
+</div>

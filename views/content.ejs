@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="../public/javascripts/bootstrap-material-design-master/dist/css/ripples.css">
+<script src="../public/javascripts/content.js"></script>
+<script>$(document).ready(function () {
+        $.material.init();
+    });</script>
+<div class="contents">
+    <div class="contents-header">
+        <div class="contents-title "><%= content.Title %></div>
+        <div style="color: #999;">
+            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<%= content.CreateTime %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-eye"></i>&nbsp;&nbsp;<%= content.Views %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-comments-o"></i>&nbsp;&nbsp;<%= content.Replies %>&nbsp;&nbsp;
+        </div>
+    </div>
+    <div style="padding: 15px;color: #333">
+        <%- content.Text %>
+    </div>
+</div>
+<div class="contents">
+    <div class="reply-header">回复内容</div>
+    <% replies.forEach(function(reply){ %>
+    <% if (!reply.ReplyTo){ %>
+    <div class="reply-content row">
+        <div class="col-md-1 reply-img">
+            <img src="../public/images/163341101.jpg" alt="..." class="img-thumbnail" style="width: 100%">
+        </div>
+        <div class="col-md-11">
+            <div style="margin-bottom: 10px;">
+                <% if(reply.ReplyUrl){ %>
+                <a href="<%= reply.ReplyUrl %>"><%= reply.ReplyName %></a>
+                <% }else{ %>
+                <%= reply.ReplyName %>
+                <% } %>
+               <sapn style="color: #999;font-size: 12px"> &nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;&nbsp;<%= reply.CreateTime %></sapn>
+            </div>
+            <h5><%= reply.ReplyContent %></h5>
+
+        </div>
+    </div>
+    <% }else{ %>
+    <div class="reply-content row">
+        <div class="col-md-1 reply-img"><img src="../public/images/163341101.jpg" alt="..." class="img-circle"
+                                             style="width: 100%"></div>
+        <div class="col-md-11">
+            <div style="margin-bottom: 10px;">wangixaoming</div>
+            <blockquote>dasdad</blockquote>
+            <div>这里是内容</div>
+        </div>
+    </div>
+    <% } }) %>
+</div>
+
+<div class="contents">
+    <div class="reply-header">回复</div>
+    <from id='reply' class="row" style="display: block">
+        <div class="col-md-10 col-md-offset-1">
+            <br>
+
+            <div class="m-form-control-wrapper">
+                <input name="ReplyName" type="text" class="material-form-control m-form-control empty">
+
+                <div class="floating-label" style="color: #333">昵称</div>
+                <span class="material-input"></span>
+            </div>
+            <br>
+
+            <div class="m-form-control-wrapper">
+                <input name="ReplyEmail" type="email" class="material-form-control m-form-control empty">
+
+                <div class="floating-label" style="color: #333">邮箱</div>
+                <span class="material-input"></span>
+            </div>
+            <br>
+
+            <div class="m-form-control-wrapper">
+                <input name="ReplyUrl" type="text" class="material-form-control m-form-control empty">
+
+                <div class="floating-label" style="color: #333">主页</div>
+                <span class="material-input"></span>
+            </div>
+            <br>
+
+            <div class="m-form-control-wrapper">
+                <textarea name="ReplyContent" class="material-form-control m-form-control empty"
+                          style="height:150px"></textarea>
+
+                <div class="floating-label " style="color: #333">回复内容</div>
+                <span class="material-input"></span></div>
+
+
+            <div style="display: none">
+                <input name="BlogId" value="<%= content.ID %>">
+                <input name="ReplyTo">
+            </div>
+            <div style="margin-left: 50%">
+                <button id="replySubmit" class="btn btn-primary btn-raised" style="margin-left: -38px">&nbsp;&nbsp;回&nbsp;复&nbsp;&nbsp;
+                    <div class="ripple-wrapper"></div>
+                </button>
+            </div>
+            <br>
+            <div id="reply-alert" class="alert alert-warning" role="alert" style="display: none">您需要输入昵称、邮箱及回复内容</div>
+            <div style="color: #333;font-size: 9px;margin-bottom: 15px">邮箱地址仅作为身份校验，并不会显示于页面</div>
+        </div>
+    </from>
+</div>
