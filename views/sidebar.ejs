@@ -12,6 +12,7 @@
         <% tops.forEach(function(top){ %>
         <li><span><%= i %>.</span>
             <a href="#blog/<%= top.id %>"><%= top.title %></a>
+            <a style="display: none" href="./blog/<%= top.id %>"><%= top.title %></a>
             <span style="float: right;color: #999"><%= top.views %>/<%= top.replies %></span>
         </li>
         <% i++;}) %>

@@ -50,7 +50,7 @@ module.exports = function (pool) {
 
         },
         getTop: function (callback) {
-            var sql = 'select id,title,views,replies from contents order by views and replies asc limit 10';
+            var sql = 'select id,title,views,replies from contents order by replies desc , views desc limit 10';
             db.query(sql, null, callback);
         },
         addViewCount: function (id, callback) {

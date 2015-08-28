@@ -13,9 +13,9 @@ a:hover, a:focus {
 }
 
 /*ul {*/
-    /*padding: 0px;*/
-    /*list-style: none;*/
-    /*margin: 0px;*/
+/*padding: 0px;*/
+/*list-style: none;*/
+/*margin: 0px;*/
 
 /*}*/
 
@@ -107,6 +107,17 @@ a:hover, a:focus {
     border: 1px solid #ececec;
 }
 
+.contents img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px
+}
+
+.contents blockquote {
+    font-size: 14px;
+}
+
 .contents-header {
     height: 80px;
     border-bottom: solid 1px #ececec;
@@ -183,6 +194,7 @@ a:hover, a:focus {
     padding-right: 0px;
     padding-top: 7px;
 }
+
 .login {
     padding: 20px;
     width: 400px;

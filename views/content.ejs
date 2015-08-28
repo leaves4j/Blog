@@ -1,8 +1,15 @@
 <link rel="stylesheet" href="../public/javascripts/bootstrap-material-design-master/dist/css/ripples.css">
 <script src="../public/javascripts/content.js"></script>
-<script>$(document).ready(function () {
+<script>
+    if (document.getElementsByTagName('meta').length == 0) {
+        window.location.href = location.origin + '#' + location.pathname;
+    }
+    $(document).ready(function () {
+
         $.material.init();
-    });</script>
+    });
+
+</script>
 <div class="contents">
     <div class="contents-header">
         <div class="contents-title "><%= content.Title %></div>
@@ -31,7 +38,8 @@
                 <% }else{ %>
                 <%= reply.ReplyName %>
                 <% } %>
-               <sapn style="color: #999;font-size: 12px"> &nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;&nbsp;<%= reply.CreateTime %></sapn>
+                <sapn style="color: #999;font-size: 12px"> &nbsp;&nbsp;<i
+                            class="fa fa-clock-o"></i>&nbsp;&nbsp;<%= reply.CreateTime %></sapn>
             </div>
             <h5><%= reply.ReplyContent %></h5>
 
@@ -98,6 +106,7 @@
                 </button>
             </div>
             <br>
+
             <div id="reply-alert" class="alert alert-warning" role="alert" style="display: none">您需要输入昵称、邮箱及回复内容</div>
             <div style="color: #333;font-size: 9px;margin-bottom: 15px">邮箱地址仅作为身份校验，并不会显示于页面</div>
         </div>

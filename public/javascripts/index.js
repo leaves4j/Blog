@@ -25,10 +25,16 @@ function getResource() {
     if (!url) url = '#list/All/1-10';
 
     url = url.replace('#/', './').replace('#', './');
+    NProgress.start();
     $.get(url, function (data) {
 
         // $('#list').fadeOut();
         $('#list').html(data).hide();
         $('#list').fadeIn();
+        NProgress.done();
+        setTimeout(function(){
+            NProgress.remove();
+        },1500)
+
     })
 }

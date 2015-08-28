@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/javascripts/highlight/styles/idea.css">
-
+    <script src='../public/javascripts/nprogress/nprogress.js'></script>
+    <link rel='stylesheet' href='../public/javascripts/nprogress/nprogress.css'/>
     <link rel="stylesheet" href="../public/stylesheets/style.css">
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
 <div class="header">
@@ -35,7 +37,9 @@
             <li><a href="#list/All/1-10" class="navbar-select">全部</a></li>
             <% blogType.forEach(function(type){ %>
             <li><a href="#list/<%= type.id %>/1-10"><%= type.typeName %></a></li>
+            <a href="./list/<%= type.id %>/1-10" style="display: none"><%= type.typeName %></a>
             <% }) %>
+
         </ul>
 
 

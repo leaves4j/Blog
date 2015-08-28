@@ -1,3 +1,8 @@
+<script>
+    if (document.getElementsByTagName('meta').length == 0) {
+        window.location.href = location.origin + '#' + location.pathname;
+    }
+</script>
 <% if(contents.length > 0){ %>
 <% contents.forEach(function(content){ %>
 <div class="list ">
@@ -6,6 +11,7 @@
             <span class="label label-info"
                   style="font-size: 16px;padding: .2em .6em .2em"><%= content.BlogType %></span>
             <a href="#blog/<%= content.ID %>" style="font-size: 16px;"><%= content.Title %></a>
+            <a href="./blog/<%= content.ID %>" style="display: none"><%= content.Title %></a>
         </div>
     </div>
     <div class="row">
@@ -13,8 +19,11 @@
             <img style="width: 100%;" src="<%= content.PicturePath %>" alt="..." class="img-rounded">
         </div>
         <div class="col-md-9" style="color: #555555;position: relative;height: 100%">
-            <div style="height: 100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <%= content.Summary %></div>
+            <div style="height: 100px">
+                <h5 style="line-height: 1.5;margin-top: 0px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= content.Summary %>
+                </h5>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -48,6 +57,8 @@
         <li>
             <% } %>
             <a href="#list/<%= pagination.type %>/<%= (i - 1) * 10 + 1 %>-<%= i * 10 %>"><%= i %></a>
+            <a style="display:none"
+               href="./list/<%= pagination.type %>/<%= (i - 1) * 10 + 1 %>-<%= i * 10 %>"><%= i %></a>
         </li>
         <% } %>
         <li>
@@ -63,6 +74,10 @@
             <a href="#list/<%= pagination.type %>/<%= (start - 1) * 10 + 1 %>-<%= start * 10 %>" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
+            <a style="display: none" href="./list/<%= pagination.type %>/<%= (start - 1) * 10 + 1 %>-<%= start * 10 %>"
+               aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
         </li>
         <% if (nowPage > 3){ %>
         <li><a>···</a></li>
@@ -74,6 +89,8 @@
         <li>
             <% } %>
             <a href="#list/<%= pagination.type %>/<%= (i - 1) * 10 + 1 %>-<%= i * 10 %>"><%= i %></a>
+            <a style="display: none"
+               href="./list/<%= pagination.type %>/<%= (i - 1) * 10 + 1 %>-<%= i * 10 %>"><%= i %></a>
         </li>
         <% } %>
         <% if (nowPage < size - 3){ %>
@@ -81,6 +98,10 @@
         <% } %>
         <li>
             <a href="#list/<%= pagination.type %>/<%= (end - 1) * 10 + 1 %>-<%= end * 10 %>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            <a style="display: none" href="./list/<%= pagination.type %>/<%= (end - 1) * 10 + 1 %>-<%= end * 10 %>"
+               aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
