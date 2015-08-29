@@ -18,7 +18,7 @@ module.exports = function (router) {
                 }
             }, function (err, results) {
                 if (err) {
-                    throw err;
+                    next(err) ;
                 }
 
                 else
@@ -43,7 +43,7 @@ module.exports = function (router) {
                 }
             }, function (err, results) {
                 if (err) {
-                    throw err;
+                    next(err) ;
                 }
 
                 else

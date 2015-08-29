@@ -7,7 +7,7 @@ module.exports = function (router) {
         var reply = req.body;
         dao.replyDao.add(reply, function (err, result) {
             if (err){
-                throw err;
+                next(err) ;
             }
 
             else

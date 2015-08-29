@@ -5,7 +5,7 @@ module.exports = function (db) {
     return {
         query: function (sql, values, cb) {
             db.getConnection(function (err, connection) {
-                if (err) throw new Error(err);
+                if (err)  cb(err);
                 else
                     connection.query(sql, values, function (err, result) {
                         cb(err, result);

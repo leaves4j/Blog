@@ -25,7 +25,7 @@ module.exports = function (router) {
             }
         }, function (err, result) {
             if (err) {
-                throw err;
+                next(err);
             }
             else {
                 result.content[0].Text = marked(result.content[0].Text);

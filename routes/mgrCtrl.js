@@ -9,7 +9,7 @@ module.exports = function (router) {
         else
             dao.blogTypeDao.getAll(function (err, result) {
                 if (err)
-                    res.render('error', null);
+                    next(err);
                 else
                     res.render('mgr', {blogType: result});
             });
@@ -21,7 +21,7 @@ module.exports = function (router) {
         else
             dao.contentsDao.add(content, function (err, result) {
                 if (err) {
-                    throw err;
+                    next(err);
                 }
 
                 else
