@@ -29,7 +29,11 @@ a:hover, a:focus {
     line-height: 100px;
     color: #42B2FB;
 }
-
+.header .icons {
+    font-size: 40px;
+    line-height: 100px;
+    color: #42B2FB;
+}
 .header .sign {
     height: 100%;
     float: left;
