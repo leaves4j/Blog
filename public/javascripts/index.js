@@ -14,7 +14,7 @@ $(function () {
     };
 
 
-    $('#bar a').click(function(){
+    $('#bar a').click(function () {
         $('#bar a').removeClass('navbar-select');
         $(this).addClass('navbar-select');
     });
@@ -25,16 +25,21 @@ function getResource() {
     if (!url) url = '#list/All/1-10';
 
     url = url.replace('#/', './').replace('#', './');
-    NProgress.start();
+    //NProgress.start();
+    var value=0.2;
+    var rd=0;
+    var timer = setInterval(function () {
+        value=value+(1-value)*(Math.random()*0.2+0.2);
+        NProgress.set(value);
+    }, 50);
     $.get(url, function (data) {
-
-        // $('#list').fadeOut();
+        window.clearInterval(timer);
         $('#list').html(data).hide();
         $('#list').fadeIn();
         NProgress.done();
-        setTimeout(function(){
+        setTimeout(function () {
             NProgress.remove();
-        },1500)
+        }, 1500)
+    });
 
-    })
 }
